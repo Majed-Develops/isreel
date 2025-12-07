@@ -371,7 +371,7 @@ import { createEventDispatcher, onDestroy } from 'svelte';
   .pane-long::-webkit-scrollbar { display: none; }
   .pane-main {
     overscroll-behavior-y: contain;
-    touch-action: pan-y; /* allow horizontal swipes to bubble to pane-track */
+    touch-action: pan-y pan-x; /* allow both directions; let pane-track handle horizontal */
     /* match container height precisely to visible area (main padding vars from App.svelte) */
     height: calc(100dvh - var(--main-pad-top) - var(--main-pad-bottom));
     scroll-snap-type: y mandatory;
@@ -379,7 +379,7 @@ import { createEventDispatcher, onDestroy } from 'svelte';
     scroll-padding-top: 0;
     scroll-padding-bottom: 0;
   }
-  .pane-long { touch-action: pan-y; }
+  .pane-long { touch-action: pan-y pan-x; }
 .pane-long header {
     display: flex;
     align-items: center;
